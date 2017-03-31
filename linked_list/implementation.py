@@ -74,13 +74,10 @@ class LinkedList(AbstractLinkedList):
 
     def count(self):
         counter = 0
-        
-        
-        
-        '''
-        for _ in self:
+        node_a = self.start
+        while node_a is not None:
             counter += 1
-        '''
+            node_a = node_a.next
         return counter
 
     def pop(self, index=None):
