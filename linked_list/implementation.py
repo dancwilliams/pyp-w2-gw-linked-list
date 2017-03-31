@@ -69,6 +69,9 @@ class LinkedList(AbstractLinkedList):
 
     def __iadd__(self, other):
         pass
+    
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
     def __eq__(self, other):
         
