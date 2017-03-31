@@ -1,5 +1,5 @@
 # Hint 3 - The power of iteration
-
+;
 Many of the LinkedList methods can be quickly implemented by relying on the iterator of the list. For example, the count method could be easily implemented like:
 
 ```python

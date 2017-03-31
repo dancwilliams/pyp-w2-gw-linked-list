@@ -21,7 +21,7 @@ class LinkedList(AbstractLinkedList):
         return '[{}]'.format(', '.join(num_str))
 
     def __len__(self):
-        pass
+        return self.count()
 
     def __iter__(self):
         current = self.start
@@ -48,18 +48,37 @@ class LinkedList(AbstractLinkedList):
     #__next__ = next
 
     def __getitem__(self, index):
-        pass
+        
+        if index > self.count() - 1:
+            raise IndexError
+        
+        prev = None
+        node = self.start
+        i = 0
+        
+        while (node is not None) and (i < index):
+            prev = node
+            node = node.next
+            i += 1
+        
+        return node.elem
+        # Block ends here
 
     def __add__(self, other):
         pass
-
 
     def __iadd__(self, other):
         pass
 
     def __eq__(self, other):
+        
+        # Guys, is this function really supposed to print two linked lists first?
         print(self)
         print(other)
+        
+        if self is None or other is None:
+            return False
+        
         node_a = self.start
         node_b = other.start
 
@@ -88,6 +107,7 @@ class LinkedList(AbstractLinkedList):
 
 
     def count(self):
+        
         counter = 0
         
         for x in self:
@@ -102,7 +122,39 @@ class LinkedList(AbstractLinkedList):
 
 
     def pop(self, index=None):
-        pass
+        
+        # If index == None, we want to remove the last node, i.e. node with
+        # an index of self.count - 1 (or len(self))
+        
+        if self.start is None:
+            raise IndexError
+        
+        if index == None:
+            index = self.count() - 1
+        
+        if index > self.count() - 1:
+            raise IndexError
+        
+        prev = None
+        node = self.start
+        i = 0
+        
+        while (node is not None) and (i < index):
+            prev = node
+            node = node.next
+            i += 1
+            
+        if node is not None:
+            value_to_return = node.elem    
+        
+        if prev is None:
+            self.start = node.next
+        else:
+            prev.next = node.next
+        
+        return value_to_return
+
+
 '''
 class Book(object):
     self.value = 'x'
