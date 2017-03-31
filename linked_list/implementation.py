@@ -29,23 +29,7 @@ class LinkedList(AbstractLinkedList):
             yield current.elem
             current = current.next
         raise StopIteration
-    
-    '''
-        self.current = self.start
-        return self
-        
-    def __next__(self):
-        
-        if not self.current:
-            raise StopIteration()
-            
-        self.num = self.current
-        self.current += 1
-        
-        return self.num
-    '''    
-        
-    #__next__ = next
+
 
     def __getitem__(self, index):
         
@@ -119,12 +103,7 @@ class LinkedList(AbstractLinkedList):
         
         for x in self:
             counter += 1
-        '''
-        node_a = self.start
-        while node_a is not None:
-            counter += 1
-            node_a = node_a.next
-        '''
+
         return counter
 
 
@@ -160,15 +139,3 @@ class LinkedList(AbstractLinkedList):
             prev.next = node.next
         
         return value_to_return
-
-
-'''
-class Book(object):
-    self.value = 'x'
-pass
-
-
-placeholder = Node(value)
-self.end.next = placeholder
-self.end = placeholder
-'''
