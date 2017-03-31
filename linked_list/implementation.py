@@ -15,25 +15,37 @@ class LinkedList(AbstractLinkedList):
                 self.append(elem)        
 
     def __str__(self):
-        pass
+        num_str = []
+        for item in self:
+            num_str.append(str(item))
+        return '[{}]'.format(', '.join(num_str))
 
     def __len__(self):
         pass
 
     def __iter__(self):
+        current = self.start
+        while current:
+            yield current.elem
+            current = current.next
+        raise StopIteration
+    
+    '''
         self.current = self.start
         return self
         
     def __next__(self):
+        
         if not self.current:
             raise StopIteration()
             
-        num = self.current
+        self.num = self.current
         self.current += 1
         
-        return num
-
-    __next__ = next
+        return self.num
+    '''    
+        
+    #__next__ = next
 
     def __getitem__(self, index):
         pass
@@ -41,10 +53,13 @@ class LinkedList(AbstractLinkedList):
     def __add__(self, other):
         pass
 
+
     def __iadd__(self, other):
         pass
 
     def __eq__(self, other):
+        print(self)
+        print(other)
         node_a = self.start
         node_b = other.start
 
@@ -74,11 +89,17 @@ class LinkedList(AbstractLinkedList):
 
     def count(self):
         counter = 0
+        
+        for x in self:
+            counter += 1
+        '''
         node_a = self.start
         while node_a is not None:
             counter += 1
             node_a = node_a.next
+        '''
         return counter
+
 
     def pop(self, index=None):
         pass
