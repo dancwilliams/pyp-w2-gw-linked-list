@@ -65,11 +65,8 @@ class LinkedList(AbstractLinkedList):
         # Block ends here
 
     def __add__(self, other):
-        temp_elements = []
-        for elem in self:
-            temp_elements.append(elem)
-        new_list = self.__class__(temp_elements)
-        for elem in other:
+        new_list = self._
+        print()
             new_list.append(elem)
         return(new_list)
 
